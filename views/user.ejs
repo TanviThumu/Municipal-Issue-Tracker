@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipal Complaint Portal</title>
+  <link rel="stylesheet" href="/style.css" />
+  <style>
+        header {
+            background-color: #004466;
+            color: white;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        header h2 {
+            margin-top: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: normal;
+            color: #e0e0e0;
+        }
+
+
+        button {
+            padding: 0.7rem;
+            background-color: #004466;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #006699;
+        }
+        header a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        header a:hover {
+            text-decoration: underline;
+            color: #ffcc00;
+        }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Municipal Complaint Portal</h1>
+    <h2>Welcome <%= user %></h2>
+    <a href="http://localhost:8080/myPosts">view my posts</a>
+  </header>
+
+  <main>
+    
+    <% complaints.forEach(c => { %>
+    <section class="complaints">
+        <div class="complaint">
+        <h3><%= c.complaint %></h3>
+        <p><%= c.address %></p>
+        <small>
+            Reported on: 
+            <%= c.dateOfReport ? c.dateOfReport.toISOString().slice(0, 10) : "N/A" %>
+        </small>
+        </div>
+    </section>
+    <% }) %>
+
+    <section class="post-complaint">
+      <h2>Post a Complaint</h2>
+      <a href="/newPost"><button type="button">Add complaint</button></a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Municipal Complaint Portal</p>
+  </footer>
+</body>
+</html>

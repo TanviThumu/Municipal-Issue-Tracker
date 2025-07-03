@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My posts</title>
+    <link rel="stylesheet" href="/style.css" />
+</head>
+
+<body>
+    
+    <h1>My complaints</h1>
+
+    <a href="http://localhost:8080/user">Back</a>
+
+   
+<% complaints.forEach(c => { %>
+  <section class="complaints">
+    <div class="complaint">
+      <h3><%= c.complaint %></h3>
+      <p><%= c.address %></p>
+      <small>
+        Reported on: 
+        <%= c.dateOfReport ? c.dateOfReport.toISOString().slice(0, 10) : "N/A" %>
+      </small>
+      <br><br>
+      <form method="post" action="/myPosts/<%= c.complaintId %>?_method=DELETE">
+        <button>Delete my complaint</button>
+      </form>
+    </div>
+  </section>
+<% }) %>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Municipal Complaint Portal</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <header>
+    <h1>Municipal Complaint Portal</h1>
+    <nav>
+      <a href="#">Home</a>
+      <a href="http://localhost:8080/login">Login</a>
+      <a href="http://localhost:8080/signup">Sign Up</a>
+    </nav>
+  </header>
+
+  <main>
+
+    <h2>Recent Complaints</h2>
+    <% complaints.forEach(c => { %>
+    <section class="complaints">
+        <div class="complaint">
+        <h3><%= c.complaint %></h3>
+        <p><%= c.address %></p>
+        <small>
+            Reported on: 
+            <%= c.dateOfReport ? c.dateOfReport.toISOString().slice(0, 10) : "N/A" %>
+        </small>
+        </div>
+    </section>
+    <% }) %>
+
+    <section class="post-complaint">
+      <h2>Post a Complaint</h2>
+      <p><strong>Note:</strong> You must <a href="http://localhost:8080/login">login</a> to post a complaint.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Municipal Complaint Portal</p>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New post</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f8ff;
+            padding: 2rem;
+        }
+
+        h1 {
+            text-align: center;
+            color: #004466;
+        }
+
+        form {
+            max-width: 500px;
+            margin: 2rem auto;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        input {
+            padding: 0.7rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 0.7rem;
+            background-color: #004466;
+            color: white;
+            border: none;
+            font-size: 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #006699;
+        }
+
+    </style>
+</head>
+<body>
+    
+    <h1>Post your complaint <%= user %></h1>
+
+    <form method="post" action="/newPost">
+        <input type="text" name="complaint" placeholder="What is your complaint?" rows="7" cols="20">
+        <input type="text" name="address" placeholder="Enter location of issues">
+        <input type="date" name="dateOfReport" placeholder="Date of report">
+        <button type="submit">Post complaint</button>
+    </form>
+
+</body>
+</html>
