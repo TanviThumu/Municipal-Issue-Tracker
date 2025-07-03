@@ -24,7 +24,7 @@ app.use(express.static(path.join(__dirname, "public")));
 const db = mysql.createConnection({      
   host: 'localhost',
   user: 'root',
-  database: 'municiaplTacker',
+  database: 'municipalTacker',
   password: ''
 });
 
